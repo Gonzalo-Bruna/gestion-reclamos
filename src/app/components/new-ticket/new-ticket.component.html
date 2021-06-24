@@ -1,0 +1,61 @@
+<div class="background d-flex align-items-center">
+
+    <div class="form col-sm-4">
+
+        <div class="titulo text-center">
+            <h2>Agregar nuevo Ticket</h2>
+            <img src="../../../assets/images/tabla.png" class="center mb-4" alt="">
+            
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-12">
+                <mat-label>Categoria</mat-label>
+                <mat-select>
+                    <mat-option value="one">Consulta</mat-option>
+                    <mat-option value="two">Reclamo</mat-option>
+                    <mat-option value="two">Sugerencia</mat-option>
+                    <mat-option value="two">Felicitacion</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-12">
+                <mat-label>Asunto</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-12">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <label id="example-radio-group-label" class="col-sm-12 mb-3">Indique la prioridad del ticket:</label>
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class="example-radio-group col-sm-12 row"
+                [(ngModel)]="selectedPriority">
+                <mat-radio-button class="example-radio-button col-sm-12 ml-4" *ngFor="let priority of priorities" [value]="priority">
+                    {{priority}}
+                </mat-radio-button>
+            </mat-radio-group>
+            
+        </div>
+        <!-- <div class="mt-2">Prioridad seleccionada: {{selectedPriority}}, estás seguro?</div> -->
+        
+        <div class="button_center d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mt-4">Crear Ticket</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+   
+

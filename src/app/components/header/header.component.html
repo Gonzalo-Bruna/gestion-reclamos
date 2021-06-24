@@ -1,0 +1,46 @@
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand"  [routerLink]="['']" routerLinkActive="router-link-active">
+                <!-- <img src="../../../assets/images/logo.png" alt="" width="79" height="30" class="d-inline-block align-text-top"> -->
+                <img src="../../../assets/images/logo2.png" alt="" width="45" height="45" class="d-inline-block align-text-top text-">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+                </ul>
+                <div class="d-flex">
+                    <form class="d-flex justify-content-end">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-outline-light ml-2" type="submit">Buscar</button>
+                    </form>
+                    <div class="d-flex align-items-center">
+                        <a class="link-light px-3 me-2" [routerLink]="['/login']" routerLinkActive="router-link-active">Iniciar Sesión</a>
+                        <a type="button" class="btn btn-primary me-3" [routerLink]="['/register']" routerLinkActive="router-link-active">Registrarse</a>
+                        <!-- <a class="btn btn-dark px-3" href="https://github.com/mdbootstrap/mdb-ui-kit" role="button"><i class="fab fa-github"></i></a> -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+ 

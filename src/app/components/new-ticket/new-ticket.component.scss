@@ -1,0 +1,29 @@
+.background{
+    background-image: url(../../../assets/images/fondo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.form{
+
+    background: #fff;
+    margin: 0 auto;
+    border: 3px solid #f1f1f1;
+    padding: 30px 30px;
+    //border-radius: 3%;
+    
+    h2{
+        font-size: 30px;
+    }
+    
+    img.center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 13%;
+          
+    }
+
+}
