@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   form:FormGroup;
   username:AbstractControl;
   password:AbstractControl;
+  hide:boolean = true;
 
   constructor(private fb: FormBuilder) { 
 

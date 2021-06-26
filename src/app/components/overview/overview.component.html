@@ -1,100 +1,76 @@
-<div class="background">
-  <div class="tickets col-md-12" >
+<div class="fondo my-5 mx-auto">
 
-    <div>
-        <h3>Bienvenido PALTO</h3>
-        <img src="../../../assets/images/palto.jpg" alt="">
-    </div>
+  <img src="../../../assets/images/overview.jpg" alt="">
 
-    <h5>Tickets</h5>
-
-    <div class="row">
-        <div class="col-lg-6 mt-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-              <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-              <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-                <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-              </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-                <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-                <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-                <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-                  <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-6 mt-4">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
-                  <button class="btn btn-primary" (click)="openDialog()" *ngIf="isadmin == false">Revisar estado</button>
-                </div>
-              </div>
-            </div>
-
-    </div>
-
-    <button type="button" class="btn btn-primary btn-lg mt-4" *ngIf="isadmin==false">Nuevo Ticket</button>
-
+  <div class="titulo text-center">
+    <h5>Bienvenido Palto</h5>
   </div>
+
+  <div class="tickets">
+
+    <h3>Tickets</h3>
+
+    <div class="row mt-4">
+
+      <div class="col-sm-6 mt-3">
+        <div class="card text-center">
+          <div class="card-header bg-success text-white">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional content.
+              </p>
+              <a href="#" class="btn btn-primary" *ngIf="isadmin == false">Revisar</a>
+              <a href="#" class="btn btn-primary" *ngIf="isadmin == true">Gestionar</a>
+            </div>
+          <div class="card-footer text-muted">2 days ago</div>
+        </div>
+      </div>
+      <div class="col-sm-6 mt-3">
+        <div class="card text-center">
+          <div class="card-header bg-danger text-white">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional content.
+              </p>
+              <a href="#" class="btn btn-primary">Revisar</a>
+            </div>
+          <div class="card-footer text-muted">2 days ago</div>
+        </div>
+      </div>
+      <div class="col-sm-6 mt-3">
+        <div class="card text-center">
+          <div class="card-header bg-warning text-black">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional content.
+              </p>
+              <a href="#" class="btn btn-primary">Revisar</a>
+            </div>
+          <div class="card-footer text-muted">2 days ago</div>
+        </div>
+      </div>
+      <div class="col-sm-6 mt-3">
+        <div class="card text-center">
+          <div class="card-header bg-success text-white">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional content.
+              </p>
+              <a href="#" class="btn btn-primary">Revisar</a>
+            </div>
+          <div class="card-footer text-muted">2 days ago</div>
+        </div>
+      </div>
+
+    </div>
+
+    <a type="button" class="btn btn-primary btn-lg mt-4" *ngIf="isadmin==false" [routerLink]="['/new-ticket']" routerLinkActive="router-link-active">Nuevo Ticket</a>
+  </div>
+
 </div>
 
 

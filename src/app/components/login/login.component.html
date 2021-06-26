@@ -1,12 +1,32 @@
-<div class="background d-flex align-items-center">
+<div class="my-5 d-flex align-items-center">
     <form [formGroup]="form" method="post">
-      <div class="imgcontainer">
+      <div class="text-center">
         <img src="../../assets/images/avatar.png" alt="Avatar" class="avatar">
       </div>
   
       <div class="titulo text-center"><h5>Portal de reclamos</h5></div>
+
+      <div class="row">
+        <mat-form-field appearance="fill" class="col-sm-11 mx-auto">
+            <mat-label>Usuario</mat-label>
+            <input matInput>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="fill" class="col-sm-11 mx-auto">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" class="input-pass">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide" class="text-dark">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <a class="btn btn-primary btn-lg col-sm-6 mx-auto mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active">Iniciar Sesión</a>
+      </div>
     
-      <div class="container">
+      <!-- <div class="container">
         <label><b>Usuario</b></label>
         <input type="text" placeholder="Ingresa tu nombre de usuario" formControlName="username">
     
@@ -14,13 +34,7 @@
         <input type="password" placeholder="Ingresa tu contraseña" formControlName="password">
     
         <button type="button" class="btn btn-success btn-lg">Iniciar Sesión</button>
-      </div>
-    
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn btn btn-danger">Cancelar</button>
-        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-        <!-- <span class="psw">Olvidaste tu <a href="#">contraseña?</a></span> -->
-      </div>
+      </div> -->
   
       <div role="alert" class="warnings alert alert-warning mb-2 mt-4" *ngIf="username.invalid && username.dirty">
         <i class="fas fa-exclamation-triangle"></i> El nombre de usuario es obligatorio

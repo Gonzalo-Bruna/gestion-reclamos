@@ -1,21 +1,38 @@
-.background{
-    background-image: url(../../../assets/images/fondo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    overflow: auto;
-}
-
-.tickets{
+.fondo{
+    
     width: 50%;
-    margin: 0 auto;
     text-align: center;
-    padding: 2% 3%;
     background: #fff;
+    padding-top: 30px;
 
     img{
-        width: 20%;
-        margin: 15px 0;
+        width: 35%;
+        border-radius: 3%;
     }
+
+    .titulo{
+
+        background: #f7fafb;
+        padding: 10px 0;
+        margin: 30px 0;
+        //overflow: auto;
+  
+        h5{
+          font-family: 'Roboto', sans-serif;
+          font-weight: 300;
+          font-size: 25px;
+          margin: 10px;
+        }
+  
+    }
+
+    
+
+    .tickets{
+        padding: 3% 5%;
+        h3{
+            font-size: 30px;
+        }
+    }
+
 }

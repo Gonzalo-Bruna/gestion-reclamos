@@ -1,3 +1,13 @@
 .link-light{
     color: #fff;
 }
+
+header{
+
+    position: sticky;
+    top: 0;
+    // width: 100%;
+    // overflow: hidden;
+    z-index: 2;
+
+}

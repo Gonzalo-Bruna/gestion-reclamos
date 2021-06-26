@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CheckStatusComponent } from '../modals/check-status/check-status.component';
 
-@Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+@Component({  
+  selector: 'app-overview',  
+  templateUrl: './overview.component.html',  
+  styleUrls: ['./overview.component.scss']  
 })
 export class OverviewComponent implements OnInit {
 
@@ -23,7 +23,6 @@ export class OverviewComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
 
-    //this.dialog.open(CheckStatusComponent);
   }
 
 }
