@@ -50,12 +50,14 @@ export class NewTicketComponent implements OnInit {
     let _priority = this.priority.value;
 
     let complaint: Complaint = {
-      userId: "60da8eea50a00731886b3c41",
+      userid: "60da8eea50a00731886b3c41",
       category: _category,
       subject: _subject,
       description: _description,
       priority: _priority
     }
+
+    console.log(complaint);
 
     this.complaintService.createComplaint(complaint).subscribe(
       res => console.log(res),

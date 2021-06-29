@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth/auth.service';
-// import { ComplaintService } from './services/complaint/complaint.service';
+import { ComplaintService } from './services/complaint/complaint.service';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -39,7 +39,7 @@ import { AuthService } from './services/auth/auth.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, ComplaintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

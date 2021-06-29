@@ -3,5 +3,5 @@ export interface Complaint{
     category: string;
     subject: string;
     description: string;
-    userId:string;
+    userid:string;
 }
