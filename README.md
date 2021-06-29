@@ -1,8 +1,12 @@
 # SistemaReservas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+Para correr el backend se debe correr el comando npm init dentro de la carpeta del backend para cargar los modulos, se debe además correr el index.js encontrado en la carpeta dist para correr el servidor y que funcione la api.
+
+Los jsons generados por el mongoDB se encuentran en la carpeta Json en el directorio principal
 
 ## Development server
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
