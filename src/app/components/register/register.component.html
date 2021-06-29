@@ -1,1 +1,82 @@
-<p>register works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+      <div class="card my-5 mx-auto">
+        <img src="../../assets/images/register.jpg" alt="Avatar" class="avatar">
+        <div class="titulo text-center">
+          <h5>Formulario de registro</h5>
+        </div>
+        <form [formGroup]="form" class="mx-5 mt-2 mb-5">
+          <div class="form-floating mb-3 mt-3" >
+            <input class="form-control" id="name" placeholder="Jose" formControlName="name">
+            <small class="text-danger" *ngIf="name.invalid && name.touched">El nombre es obligatorio y debe
+              contener entre 3 y 30 caracteres
+            </small>
+            <label for="name">Nombres</label>
+          </div>
+          <div class="form-floating mb-3 mt-3" >
+            <input class="form-control" id="lastName" placeholder="Perez" formControlName="lastname">
+            <label for="lastName">Apellido Paterno</label>
+            <small class="text-danger" *ngIf="lastname.invalid && lastname.touched">El apellido paterno es obligatorio y debe
+              contener entre 3 y 15 caracteres
+            </small>
+          </div>
+          <div class="form-floating mb-3 mt-3" >
+            <input class="form-control" id="lastLastName" placeholder="Martinez" formControlName="surname">
+            <small class="text-danger" *ngIf="surname.invalid && surname.touched">El apellido materno es obligatorio y debe
+              contener entre 3 y 15 caracteres
+            </small>
+            <label for="lastLastName">Apellido Materno</label>
+          </div>
+          <div class="form-floating mb-3 mt-3" >
+            <input class="form-control" id="rut" placeholder="12.345.678-9" formControlName="rut">
+            <small class="text-danger" *ngIf="rut.invalid && rut.touched">El rut es obligatorio y debe estar en formato 1111111-1</small>
+            <label for="rut">RUT</label>
+          </div>
+          <div class="form-floating mb-3 mt-3" >
+            <input class="form-control" id="address" placeholder="Calle Maravilla 123" formControlName="address">
+            <small class="text-danger" *ngIf="address.invalid && address.touched">La direccion es obligatoria y debe contener entre 6 y 40 caracteres</small>
+            <label for="address">Dirección residencia</label>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label">Region</label>
+              <select class="form-select" aria-label="Default select example" [(ngModel)]="currentRegion" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let region of regions" [ngValue]="region">{{region.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 col-sm-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label">Comuna</label>
+              <select class="form-select" formControlName="district">
+                <option *ngFor="let district of currentRegion.districts">{{district}}</option>
+              </select>
+              <small class="text-danger" *ngIf="district.invalid && district.touched">La comuna es obligatoria</small>
+            </div> 
+          </div>
+          <div class="form-floating mb-3 mt-3" >
+            <input class="form-control" id="username" placeholder="Pepito123" formControlName="username">
+            <small class="text-danger" *ngIf="username.invalid && username.touched">El nombre de usuario es obligatorio y debe tener entre 5 y 15 caracteres</small>
+            <label for="username">Usuario</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input class="form-control" id="password" placeholder="*****" formControlName="password" type="password">
+            <small class="text-danger" *ngIf="password.invalid && password.touched">La contraseña es obligatoria y debe contener al menos 1 mayuscula, 1 minuscula, 1 número y un simbolo. Además, debe contener entre 8 y 20 caracteres</small>
+            <label for="password">Contraseña</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input class="form-control" id="confirmPassword" placeholder="*****" formControlName="confirmPassword" type="password">
+            <small class="text-danger" *ngIf="confirmPassword.invalid && confirmPassword.touched">Las contraseñas no coinciden</small>
+            <label for="confirmPassword">Repetir contraseña</label>
+          </div>
+          <div class="text-center">
+            <a class="btn btn-primary btn-lg col-6 my-4" [routerLink]="['/overview']" routerLinkActive="router-link-active" *ngIf="form.valid" (click)="registerUser()" >Registrarme</a>
+            <button class="btn btn-primary btn-lg col-6 my-4" *ngIf="form.invalid" disabled>Registrarme</button>
+            <!-- <a class="btn btn-primary btn-lg col-6 mx-auto mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active">Registrarme</a> -->
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

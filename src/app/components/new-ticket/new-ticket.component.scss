@@ -1,40 +1,38 @@
-.background{
-    background-image: url(../../../assets/images/fondo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+.titulo{
+
+  background: #f7fafb;
+  padding: 10px 0;
+
+  h5{
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 25px;
+      margin: 10px;
+  }
+
 }
 
-.form{
-
-    background: #fff;
-    margin: 0 auto;
-    border: 3px solid #f1f1f1;
-    padding: 40px 0;
-
-    .titulo{
-        background: #f7fafb;
-        padding: 10px 0;
-        margin: 40px 0;
-    }
-
-    h5{
-        font-family: 'Roboto', sans-serif;
-        font-weight: 300;
-        font-size: 25px;
-        margin: 10px;
-      }
+.card{
+    border-radius: 0.8rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
-    h2{
-        font-size: 30px;
-    }
-    
-    img.center{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 20%;
-    }
+  }
 
+.card-header{
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+
+
+}
+
+img{
+    width: auto;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+}
+
+textarea{
+  min-height: 58px;
+  max-height: 200px;
 }

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+        <div class="card my-5 px-4 py-4 mx-auto">
+            <div class="titulo text-center">
+                <h5>Lista de usuarios registrados</h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 mb-3" *ngFor="let user of users">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre: {{user.name}} {{user.lastName}} {{user.surName}}</h5>
+                        <p class="card-text">Rut: {{user.rut}}</p>
+                        <a href="#" class="btn btn-primary">Ver reclamos</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

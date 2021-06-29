@@ -2,19 +2,15 @@
 
 /* Importing Bootstrap SCSS file. */
 
-
-@import '~bootstrap/scss/bootstrap';
-//@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
 html, body { height: 100%; overflow: auto; }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 
-    //background: url(../../../assets/images/fondo.png) no-repeat center center fixed; 
-     background-image: url(assets/images/fondo.png);
+    background-image: url(assets/images/background2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    //background-attachment: fixed;
     height: 100%;
 
 }
+

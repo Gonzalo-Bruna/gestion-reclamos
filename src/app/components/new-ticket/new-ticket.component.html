@@ -1,62 +1,68 @@
-<div class="d-flex align-items-center my-5">
-
-    <div class="form col-sm-4">
-
-        <div class="text-center">
-            <!-- <h2>Agregar nuevo Ticket</h2> -->
-            <img src="../../../assets/images/tabla.png" class="center mb-4" alt="">
-            <div class="titulo text-center"><h5>Portal de reclamos</h5></div>
-            
-        </div>
-    
-        <div class="row">
-            <mat-form-field appearance="fill" class="col-sm-11 mx-auto">
-                <mat-label>Categoria</mat-label>
-                <mat-select>
-                    <mat-option value="one">Consulta</mat-option>
-                    <mat-option value="two">Reclamo</mat-option>
-                    <mat-option value="two">Sugerencia</mat-option>
-                    <mat-option value="two">Felicitacion</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="row">
-            <mat-form-field appearance="fill" class="col-sm-11 mx-auto">
-                <mat-label>Asunto</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="row">
-            <mat-form-field appearance="fill" class="col-sm-11 mx-auto">
-                <mat-label>Descripcion</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-        </div>
-        <div class="row">
-            <label id="example-radio-group-label" class="col-sm-11 mx-auto mb-3">Indique la prioridad del ticket:</label>
-            <mat-radio-group
-                aria-labelledby="example-radio-group-label"
-                class="example-radio-group col-sm-12 row"
-                [(ngModel)]="selectedPriority">
-                <mat-radio-button class="example-radio-button col-sm-11 ml-5" *ngFor="let priority of priorities" [value]="priority">
-                    {{priority}}
-                </mat-radio-button>
-            </mat-radio-group>
-            
-        </div>
-        <!-- <div class="mt-2">Prioridad seleccionada: {{selectedPriority}}, estás seguro?</div> -->
-        
-        <div class="button_center d-flex justify-content-center">
-            <a type="submit" class="btn btn-primary mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active">Crear Ticket</a>
-        </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+            <div class="card my-5 mx-auto" >
+                <img src="../../../assets/images/new-ticket.jpg" alt="Avatar" class="avatar">
+                <div class="titulo text-center">
+                    <h5>Ingresar nuevo reclamo</h5>
+                  </div>
+                <form [formGroup]="form" class="mx-5 mt-2 mb-2">
+                    <div class="mb-3">
+                        <label class="form-label">Categoria</label>
+                        <select class="form-select" formControlName="category">
+                            <option hidden selected disabled>Seleccione una categoría</option>
+                            <option value="1">Solicitud genérica</option>
+                            <option value="2">Solicitud de cambio</option>
+                            <option value="3">Incidente</option>
+                            <option value="3">Problema</option>
+                            <option value="3">Solicitud de hardware</option>
+                            <option value="3">Solicitud de software nuevo</option>
+                        </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="asunto" placeholder="Problema con ram" formControlName="asunto" formControlName="subject">
+                        <label for="name">Asunto</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="descripcion" placeholder="Ingrese aca el motivo de su reclamo" rows="3" formControlName="description"></textarea>
+                        <label for="descripcion">Descripcion</label>
+                    </div>            
+                    <div>
+                        <label class="form-label">Prioridad:</label>
+                        <br>
+                        <div class="text-center">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="priority" formControlName="priority">
+                                <label class="form-check-label">
+                                Bajo
+                                </label>
+                            </div>            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="priority">
+                                <label class="form-check-label">
+                                Medio
+                                </label>
+                            </div>            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="priority">
+                                <label class="form-check-label">
+                                Alto
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a type="submit" class="btn btn-primary mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active" (click)="createComplaint()">Crear Ticket</a>
+                    </div>
+                </form>
+            </div>
+      </div>
     </div>
-
 </div>
 
 
 
 
 
-   
+    
 
