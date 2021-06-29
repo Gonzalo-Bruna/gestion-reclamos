@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "60da9d54eb504a2dfc128ed5"
+  },
+  "userid": {
+    "$oid": "60da8eea50a00731886b3c41"
+  },
+  "priority": "alta",
+  "category": "Consulta",
+  "subject": "Se rompio mi pc ayuda",
+  "description": "Tuve un problema con mi pc y no se bien que hacer, me pueden ayudar?",
+  "__v": 0
+}]

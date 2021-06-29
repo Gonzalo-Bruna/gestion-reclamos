@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "60da8eea50a00731886b3c41"
+  },
+  "name": "Gonzalo",
+  "lastName": "bRUNA",
+  "surName": "Bruna",
+  "rut": "8120795-k",
+  "address": "jose narciso aguirre 0626",
+  "region": "Los Ríos",
+  "district": "Corral",
+  "username": "Gonzalo-Bruna",
+  "password": "ABCabc123#",
+  "__v": 0
+}]
