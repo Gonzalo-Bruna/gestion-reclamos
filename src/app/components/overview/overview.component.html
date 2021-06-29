@@ -9,10 +9,12 @@
           <div class="tickets">
             <h1 class="display-5">Tickets</h1>
             <div class="row mt-4">
-              <div class="col-sm-6 mt-3">
+              <div class="col-sm-10 mx-auto mt-3">
 
-                <div class="card text-center" *ngFor="let complain of complaints">
-                  <div class="card-header bg-success text-white">{{complain.priority}}</div>
+                <div class="card text-center mb-5" *ngFor="let complain of complaints">
+                  <div class="card-header bg-danger text-white" *ngIf="complain.priority == 'Alta'">{{complain.priority}}</div>
+                  <div class="card-header bg-warning text-white" *ngIf="complain.priority == 'Media'">{{complain.priority}}</div>
+                  <div class="card-header bg-success text-white" *ngIf="complain.priority == 'Baja'">{{complain.priority}}</div>
                     <div class="card-body">
                       <h5 class="card-title">{{complain.subject}}</h5>
                       <p class="card-text">

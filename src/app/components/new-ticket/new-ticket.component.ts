@@ -23,8 +23,8 @@ export class NewTicketComponent implements OnInit {
     /* form group */
     this.form = this.fb.group({
       category:['', [Validators.required]],
-      subject:['', [Validators.required, Validators.minLength(10), Validators.maxLength(30)]],
-      description:['', [Validators.required, Validators.minLength(20), Validators.maxLength(200)]],
+      subject:['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      description:['', [Validators.required, Validators.minLength(20), Validators.maxLength(300)]],
       priority:['', [Validators.required]],
     });
 
@@ -64,6 +64,23 @@ export class NewTicketComponent implements OnInit {
       err => console.log(err)
     );
 
+    this.mostrarAlert();
+
+  }
+
+  mostrarAlert(){
+    let alert:any;
+    alert = document.getElementById("alert-contacto-agregado");
+    if(alert.classList.contains("d-none")){
+      alert.classList.toggle("d-none");
+    }
+    
+  }
+
+  cerrarAlert(){
+    let alert:any;
+    alert = document.getElementById("alert-contacto-agregado");
+    alert.classList.toggle("d-none");
   }
 
 }

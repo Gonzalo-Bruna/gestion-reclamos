@@ -11,20 +11,24 @@
                         <label class="form-label">Categoria</label>
                         <select class="form-select" formControlName="category">
                             <option hidden selected disabled>Seleccione una categoría</option>
-                            <option value="1">Solicitud genérica</option>
-                            <option value="2">Solicitud de cambio</option>
-                            <option value="3">Incidente</option>
-                            <option value="3">Problema</option>
-                            <option value="3">Solicitud de hardware</option>
-                            <option value="3">Solicitud de software nuevo</option>
+                            <option value="Solicitud generica">Solicitud genérica</option>
+                            <option value="Solicitud de cambio">Solicitud de cambio</option>
+                            <option value="Incidente">Incidente</option>
+                            <option value="Problema">Problema</option>
+                            <option value="Solicitud de hardware">Solicitud de hardware</option>
+                            <option value="Solicitud de software nuevo">Solicitud de software nuevo</option>
                         </select>
+                        
+                        <small class="text-danger" *ngIf="category.invalid && category.touched">La categoría es obligatoria</small>
                     </div>
                     <div class="form-floating mb-3">
                         <input class="form-control" id="asunto" placeholder="Problema con ram" formControlName="subject">
+                        <small class="text-danger" *ngIf="subject.invalid && subject.touched">El asunto es obligatorio y debe contener entre 10 y 100 caracteres</small>
                         <label for="name">Asunto</label>
                     </div>
                     <div class="form-floating mb-3">
                         <textarea class="form-control" id="descripcion" placeholder="Ingrese aca el motivo de su reclamo" rows="3" formControlName="description"></textarea>
+                        <small class="text-danger" *ngIf="description.invalid && description.touched">La descripcion es obligatoria y debe contener entre 20 y 300 caracteres</small>
                         <label for="descripcion">Descripcion</label>
                     </div>            
                     <div>
@@ -50,9 +54,26 @@
                                 </label>
                             </div>
                         </div>
+                        <small class="text-danger" *ngIf="priority.invalid && priority.touched">El asunto es obligatorio y debe contener entre 10 y 30 caracteres</small>
                     </div>
                     <div class="text-center">
-                        <a type="submit" class="btn btn-primary mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active" (click)="createComplaint()">Crear Ticket</a>
+                        <button class="btn btn-primary my-4" (click)="createComplaint()" *ngIf="form.valid">Crear Ticket</button>
+                        <button class="btn btn-primary my-4" *ngIf="form.invalid" disabled>Crear Ticket</button>
+                    </div>
+
+                    <div>
+                        <div class="alert alert-success alert-contacto-agregado d-none text-center" id="alert-contacto-agregado" role="alert">
+                            <div>
+                                <strong>¡Reclamo creado exitosamente!</strong>
+                                <br>
+                                Presione el botón "ver reclamos" para revisarlos.
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-success mt-2 col-sm-5 mx-auto" (click)="cerrarAlert()">Cerrar</button>
+                                <a type="submit" class="btn btn-primary mt-2 col-sm-5 mx-auto" [routerLink]="['/overview']" routerLinkActive="router-link-active">Ver lista reclamos</a>
+                            </div>
+                            
+                        </div>
                     </div>
                 </form>
             </div>
