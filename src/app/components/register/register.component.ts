@@ -4,6 +4,10 @@ import { Region } from 'src/app/models/region.model';
 import { RegionService } from 'src/app/services/region/region.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
+import { ShareDataService } from 'src/app/services/share-data/share-data.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-register',
@@ -21,13 +25,17 @@ export class RegisterComponent implements OnInit {
   surname:AbstractControl;
   rut:AbstractControl;
   address:AbstractControl;
-  //region:AbstractControl;
   district:AbstractControl;
   username:AbstractControl;
   password:AbstractControl;
   confirmPassword:AbstractControl;
 
-  constructor(private fb: FormBuilder, private regionService: RegionService, private authService: AuthService) {
+  constructor(private fb: FormBuilder,
+     private regionService: RegionService,
+      private authService: AuthService,
+       private userService: UserService,
+        private router: Router,
+          private loggedUser:ShareDataService) {
 
     let newRegion: Region = { name:"default", districts: [] }
     this.currentRegion = newRegion;
@@ -41,7 +49,6 @@ export class RegisterComponent implements OnInit {
       surname:['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       rut:['', [Validators.required, Validators.minLength(9), Validators.maxLength(10), Validators.pattern(/^[0-9]+-[0-9kK]{1}$/)]],
       address:['', [Validators.required, Validators.minLength(6), Validators.maxLength(40)]],
-      //region:['', [Validators.required]],
       district:['', [Validators.required]],
       username:['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
       password:['', [Validators.required, Validators.pattern(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,20}$/)]],
@@ -53,7 +60,6 @@ export class RegisterComponent implements OnInit {
     this.surname = this.form.controls['surname'];
     this.rut = this.form.controls['rut'];
     this.address = this.form.controls['address'];
-    //this.region = this.form.controls['region'];
     this.district = this.form.controls['district'];
     this.username = this.form.controls['username'];
     this.password = this.form.controls['password'];
@@ -86,15 +92,28 @@ export class RegisterComponent implements OnInit {
       region: _region,
       district: _district,
       username: _username,
-      password: _password
+      password: _password,
+      isAdmin: false
     }
 
     this.authService.registerUser(user).subscribe(
-      res => console.log(res),
+      res => {
+        localStorage.setItem('token', res.token);
+        this.addNewLoggedUser(_username);
+      },
       err => console.log(err)
 
     );
+  }
 
+  async addNewLoggedUser(username: string){
+    let user: any = await this.userService.getUserByUsername(username).toPromise()
+    this.loggedUser.setUser(user);
+    this.navitageTo("overview");
+  }
+
+  navitageTo(route: string): void{
+    this.router.navigate([`/${route}`]);
   }
 
   checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {

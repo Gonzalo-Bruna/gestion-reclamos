@@ -1,4 +1,5 @@
 export interface User{
+    _id: string;
     name: string;
     lastName: string;
     surName: string;
@@ -8,4 +9,5 @@ export interface User{
     district: string;
     username: string;
     password: string;
+    isAdmin: boolean;
 }

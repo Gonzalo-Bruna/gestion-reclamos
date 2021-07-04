@@ -9,8 +9,8 @@ function getUserById(id:string){
     return userSchema.findOne({_id: id});
 }
 
-function getUserByUsername(username: string){
-    return userSchema.findOne({username: username});
+function getUserByUsername(_username: string){
+    return userSchema.findOne({username: _username});
 }
 
 function addUser(user: User){

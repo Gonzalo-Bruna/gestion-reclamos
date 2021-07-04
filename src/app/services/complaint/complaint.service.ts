@@ -8,12 +8,12 @@ import { Complaint } from '../../models/complaint.model';
 })
 export class ComplaintService {
 
-  baseUrl: string = "http://localhost:3000/api/complaints/";
+  baseUrl: string = "http://localhost:3000/api/complaints";
 
   constructor(private httpClient: HttpClient) { }
 
   public getAllComplaints():Observable<Complaint[]>{
-    return this.httpClient.get<Complaint[]>(`${this.baseUrl}complaints-list`);
+    return this.httpClient.get<Complaint[]>(`${this.baseUrl}/complaints-list`);
   }
 
   // public getComplaintById(id: string):Observable<Complaint>{
@@ -21,7 +21,11 @@ export class ComplaintService {
   // }
 
   public createComplaint(complaint: Complaint):Observable<Complaint>{
-    return this.httpClient.post<Complaint>(this.baseUrl + "new", complaint);
+    return this.httpClient.post<Complaint>(`${this.baseUrl}/new`, complaint);
+  }
+
+  public getComplaintsByUser(userId: string):Observable<Complaint[]>{
+    return this.httpClient.get<Complaint[]>(`${this.baseUrl}/user/${userId}`);
   }
 
 }

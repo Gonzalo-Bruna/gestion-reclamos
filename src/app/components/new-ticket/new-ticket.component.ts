@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Complaint } from 'src/app/models/complaint.model';
+import { User } from 'src/app/models/user.model';
 import { ComplaintService } from 'src/app/services/complaint/complaint.service';
+import { ShareDataService } from 'src/app/services/share-data/share-data.service';
 
 @Component({
   selector: 'app-new-ticket',
@@ -16,9 +18,10 @@ export class NewTicketComponent implements OnInit {
   description:AbstractControl;
   priority:AbstractControl;
 
-
   //hay que reemplazar por el otro servicio
-  constructor(private fb: FormBuilder, private complaintService: ComplaintService) { 
+  constructor(private fb: FormBuilder,
+     private complaintService: ComplaintService, 
+      private loggedUser: ShareDataService) { 
 
     /* form group */
     this.form = this.fb.group({
@@ -44,27 +47,34 @@ export class NewTicketComponent implements OnInit {
     description:AbstractControl;
     priority:AbstractControl;
 
+    let _userid = "";
+    let user: User = this.loggedUser.getUser();
+    if(user._id != undefined){
+      _userid = user._id;
+    }
+
+    if(_userid == "") return;
+      
     let _category = this.category.value;
     let _subject = this.subject.value;
     let _description = this.description.value;
     let _priority = this.priority.value;
 
     let complaint: Complaint = {
-      userid: "60da8eea50a00731886b3c41",
+      userid: _userid,
       category: _category,
       subject: _subject,
       description: _description,
       priority: _priority
     }
 
-    console.log(complaint);
-
     this.complaintService.createComplaint(complaint).subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res)
+        this.mostrarAlert();
+      },
       err => console.log(err)
     );
-
-    this.mostrarAlert();
 
   }
 

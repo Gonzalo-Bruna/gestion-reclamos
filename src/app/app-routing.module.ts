@@ -7,13 +7,14 @@ import { NewTicketComponent } from '../app/components/new-ticket/new-ticket.comp
 import { OverviewComponent } from '../app/components/overview/overview.component';
 import { RegisterComponent } from '../app/components/register/register.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {path: "", redirectTo: "/inicio", pathMatch: 'full'},
   {path: "inicio", component: HomeComponent},
   {path: "login", component: LoginComponent},
-  {path: "new-ticket", component: NewTicketComponent},
-  {path: "overview", component: OverviewComponent},
+  {path: "new-ticket", component: NewTicketComponent, canActivate: [AuthGuard]},
+  {path: "overview", component: OverviewComponent, canActivate: [AuthGuard]},
   {path: "register", component: RegisterComponent},
   {path: "users-list", component: UsersListComponent}
 ];

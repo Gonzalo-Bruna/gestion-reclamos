@@ -13,4 +13,7 @@ function getComplaintById(id) {
 function addComplaint(complaint) {
     return complaint_repository_1.default.addComplaint(complaint);
 }
-exports.default = { getAllComplaints, getComplaintById, addComplaint };
+function getAllComplaintsByUser(userId) {
+    return complaint_repository_1.default.getAllComplaintsByUser(userId);
+}
+exports.default = { getAllComplaints, getComplaintById, addComplaint, getAllComplaintsByUser };

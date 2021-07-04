@@ -14,9 +14,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth/auth.service';
 import { ComplaintService } from './services/complaint/complaint.service';
+import { AuthGuard } from './guards/auth/auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor/token-interceptor.service';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -39,7 +41,11 @@ import { ComplaintService } from './services/complaint/complaint.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [AuthService, ComplaintService],
+  providers: [AuthService, ComplaintService, AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

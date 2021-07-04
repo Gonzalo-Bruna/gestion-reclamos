@@ -13,4 +13,8 @@ function addComplaint(complaint: Complaint){
     return complaintSchema.create(complaint);
 }
 
-export default { getAllComplaints, getComplaintById, addComplaint };
+function getAllComplaintsByUser(userId: string){
+    return complaintSchema.find({userid:userId});
+}
+
+export default { getAllComplaints, getComplaintById, addComplaint, getAllComplaintsByUser };

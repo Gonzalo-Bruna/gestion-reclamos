@@ -13,4 +13,7 @@ function getComplaintById(id) {
 function addComplaint(complaint) {
     return complaint_schema_1.default.create(complaint);
 }
-exports.default = { getAllComplaints, getComplaintById, addComplaint };
+function getAllComplaintsByUser(userId) {
+    return complaint_schema_1.default.find({ userid: userId });
+}
+exports.default = { getAllComplaints, getComplaintById, addComplaint, getAllComplaintsByUser };

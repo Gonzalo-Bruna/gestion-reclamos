@@ -9,16 +9,20 @@ import { User } from '../../models/user.model';
 })
 export class UserService {
 
-  baseUrl: string = "http://localhost:3000/api/users/";
+  baseUrl: string = "http://localhost:3000/api/users";
 
   constructor(private httpClient: HttpClient) { }
 
   public getAllUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>(`${this.baseUrl}users-list`);
+    return this.httpClient.get<User[]>(`${this.baseUrl}/users-list`);
   }
 
   public getUserById(id: string):Observable<User>{
-    return this.httpClient.get<User>(`${this.baseUrl}${id}`);
+    return this.httpClient.get<User>(`${this.baseUrl}/id/${id}`);
+  }
+
+  public getUserByUsername(username: String):Observable<User>{
+    return this.httpClient.get<User>(`${this.baseUrl}/username/${username}`);
   }
 
 }

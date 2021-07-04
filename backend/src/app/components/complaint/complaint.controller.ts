@@ -13,4 +13,8 @@ function addComplaint(complaint: Complaint){
     return complaintRepository.addComplaint(complaint);
 }
 
-export default { getAllComplaints, getComplaintById, addComplaint };
+function getAllComplaintsByUser(userId: string){
+    return complaintRepository.getAllComplaintsByUser(userId);
+}
+
+export default { getAllComplaints, getComplaintById, addComplaint, getAllComplaintsByUser };

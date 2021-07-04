@@ -10,18 +10,22 @@
             <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="inicio" role="button" aria-expanded="false">
+                        <a class="nav-link" [routerLink]="['/inicio']" routerLinkActive="router-link-active" role="button" aria-expanded="false">
                             Inicio
                         </a>
                     </li>
-                    <li class="nav-item dropdown" *ngIf="isadmin == true">
+                    <li class="nav-item dropdown" *ngIf="isAdmin()">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Administrador
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" [routerLink]="['/users-list']" routerLinkActive="router-link-active" >Ver todos los usuarios registrados</a></li>
-                        <li><a class="dropdown-item" href="#">Reporte de reclamos</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/overview']" routerLinkActive="router-link-active" role="button" aria-expanded="false">
+                            Ver lista de reclamos
+                        </a>
                     </li>
                 </ul>
                 <div class="d-flex flex-column flex-lg-row">
@@ -30,8 +34,8 @@
                         <button class="btn btn-outline-light ml-2" type="submit">Buscar</button>
                     </form>
                     <div class="d-flex align-items-center mb-2 mb-lg-0">
-                        <a class="nav-link text-light px-3 me-2" [routerLink]="['/login']" routerLinkActive="router-link-active">Iniciar Sesión</a>
-                        <a type="button" class="btn btn-primary me-3" [routerLink]="['/register']" routerLinkActive="router-link-active">Registrarse</a>
+                        <a class="nav-link text-light px-3 me-2" [routerLink]="['/login']" routerLinkActive="router-link-active" *ngIf="!loggedIn()">Iniciar Sesión</a>
+                        <a type="button" class="btn btn-primary me-3" [routerLink]="['/register']" routerLinkActive="router-link-active" *ngIf="!loggedIn()">Registrarse</a>
                         <a class="btn btn-dark px-3 mx-2" href="https://github.com/Gonzalo-Bruna/gestion-reclamos" role="button"><i class="fab fa-github"></i></a>
                     </div>
                 </div>

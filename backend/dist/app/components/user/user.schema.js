@@ -10,6 +10,7 @@ const userSchema = new mongoose_1.Schema({
     region: { type: String, required: true },
     district: { type: String, required: true },
     username: { type: String, required: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    isAdmin: { type: Boolean, required: true }
 });
 exports.default = mongoose_1.model('User', userSchema, 'Users');

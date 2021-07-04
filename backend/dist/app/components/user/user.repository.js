@@ -10,8 +10,8 @@ function getAllUsers() {
 function getUserById(id) {
     return user_schema_1.default.findOne({ _id: id });
 }
-function getUserByUsername(username) {
-    return user_schema_1.default.findOne({ username: username });
+function getUserByUsername(_username) {
+    return user_schema_1.default.findOne({ username: _username });
 }
 function addUser(user) {
     return user_schema_1.default.create(user);

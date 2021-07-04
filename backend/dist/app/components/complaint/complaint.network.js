@@ -15,8 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const complaint_controller_1 = __importDefault(require("./complaint.controller"));
 const response_module_1 = __importDefault(require("./../../modules/response.module"));
+const token_1 = require("../../token/token");
 const router = express_1.default.Router();
-router.get('/complaints-list', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/complaints-list', token_1.verifyToken, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let complaints = yield complaint_controller_1.default.getAllComplaints();
         response_module_1.default.success(req, res, complaints);
@@ -25,11 +26,21 @@ router.get('/complaints-list', (req, res) => __awaiter(void 0, void 0, void 0, f
         response_module_1.default.error(req, res);
     }
 }));
-router.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/:id', token_1.verifyToken, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params['id'];
     try {
         let complaint = yield complaint_controller_1.default.getComplaintById(id);
         response_module_1.default.success(req, res, complaint);
+    }
+    catch (error) {
+        response_module_1.default.error(req, res);
+    }
+}));
+router.get('/user/:userId', token_1.verifyToken, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userId = req.params['userId'];
+    try {
+        let complaints = yield complaint_controller_1.default.getAllComplaintsByUser(userId);
+        response_module_1.default.success(req, res, complaints);
     }
     catch (error) {
         response_module_1.default.error(req, res);

@@ -13,16 +13,31 @@
             <label for="name">Usuario</label>
           </div>
           <div class="form-floating mb-3">
-            <input class="form-control" id="password" placeholder="*****" formControlName="password">
+            <input class="form-control" type="password" id="password" placeholder="*****" formControlName="password">
             <small class="text-danger" *ngIf="password.invalid && password.touched">La contraseña es obligatoria</small>
             <label for="name">Contraseña</label>
           </div>
           <div class="text-center">
-            <a class="btn btn-primary col-auto mx-auto mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active"
-            *ngIf="form.valid">Iniciar Sesión</a>
+            <button class="btn btn-primary col-auto mx-auto mt-4"
+            *ngIf="form.valid" (click)="login()">Iniciar Sesión</button>
             <button class="btn btn-primary col-auto mx-auto mt-4" *ngIf="form.invalid" disabled>Iniciar Sesión</button>
           </div>
-          </form>
+        </form>
+
+        <div class="container">
+          <div class="alert alert-danger alert-contacto-agregado d-none text-center" id="alert-contacto-agregado" role="alert">
+              <div>
+                  <strong>Error al iniciar sesión...</strong>
+                  <br>
+                  Ha habido un error al comprobar sus datos, compruebe que fueron ingresados correctamente
+              </div>
+              <div class="row">
+                  <button type="button" class="btn btn-danger mt-2 col-sm-5 mx-auto" (click)="cerrarAlert()">Cerrar</button>
+              </div>
+              
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>

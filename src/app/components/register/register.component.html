@@ -71,7 +71,7 @@
             <label for="confirmPassword">Repetir contraseña</label>
           </div>
           <div class="text-center">
-            <a class="btn btn-primary btn-lg col-6 my-4" [routerLink]="['/overview']" routerLinkActive="router-link-active" *ngIf="form.valid" (click)="registerUser()" >Registrarme</a>
+            <a class="btn btn-primary btn-lg col-6 my-4" *ngIf="form.valid" (click)="registerUser()" >Registrarme</a>
             <button class="btn btn-primary btn-lg col-6 my-4" *ngIf="form.invalid" disabled>Registrarme</button>
             <!-- <a class="btn btn-primary btn-lg col-6 mx-auto mt-4" [routerLink]="['/overview']" routerLinkActive="router-link-active">Registrarme</a> -->
           </div>

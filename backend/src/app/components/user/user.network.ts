@@ -1,10 +1,10 @@
 import express, { Request, Response } from 'express';
 import userController from './user.controller';
 import responseModule from './../../modules/response.module';
-
+import jwt, { verifyToken } from '../../token/token';
 const router = express.Router();
 
-router.get('/users-list', async (req: Request, res: Response) => {
+router.get('/users-list', verifyToken, async (req: Request, res: Response) => {
 
     try {
         let users = await userController.getAllUsers();
@@ -15,7 +15,7 @@ router.get('/users-list', async (req: Request, res: Response) => {
     
 });
 
-router.get('/:id', async (req: Request, res: Response) => {
+router.get('/id/:id', verifyToken, async (req: Request, res: Response) => {
 
     const id:string = req.params['id'];
 
@@ -28,7 +28,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     
 });
 
-router.get('/:username', async (req: Request, res: Response) => {
+router.get('/username/:username', async (req: Request, res: Response) => {
 
     const username:string = req.params['username'];
 
@@ -46,9 +46,10 @@ router.post('/new', async (req: Request, res: Response) => {
     const user = req.body;
 
     try {
-        
         let newUser = await userController.addUser(user);
-        responseModule.success(req, res, newUser, 201);
+        let payload = { subject: newUser._id }
+        let token = jwt.sign(payload, "secretKey");
+        responseModule.success(req, res, {token}, 201);
     } catch (error) {
         responseModule.error(req, res);
     }

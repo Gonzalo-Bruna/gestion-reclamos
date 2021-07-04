@@ -15,14 +15,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const response_module_1 = __importDefault(require("./../../modules/response.module"));
 const user_controller_1 = __importDefault(require("../user/user.controller"));
+const token_1 = __importDefault(require("../../token/token"));
 const router = express_1.default.Router();
 router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = req.body;
-    console.log(userData);
     try {
         let user = yield user_controller_1.default.getUserByUsername(userData.username);
         if (user.password == userData.password) {
-            response_module_1.default.success(req, res, user, 201);
+            let payload = { subject: user._id };
+            let token = token_1.default.sign(payload, 'secretKey');
+            response_module_1.default.success(req, res, { token }, 201);
+        }
+        else {
+            response_module_1.default.error(req, res, "password not valid", 400);
         }
     }
     catch (error) {
