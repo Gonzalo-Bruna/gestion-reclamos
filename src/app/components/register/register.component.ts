@@ -109,10 +109,10 @@ export class RegisterComponent implements OnInit {
   async addNewLoggedUser(username: string){
     let user: any = await this.userService.getUserByUsername(username).toPromise()
     this.loggedUser.setUser(user);
-    this.navitageTo("overview");
+    this.navigateTo("overview");
   }
 
-  navitageTo(route: string): void{
+  navigateTo(route: string): void{
     this.router.navigate([`/${route}`]);
   }
 

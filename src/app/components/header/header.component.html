@@ -36,6 +36,7 @@
                     <div class="d-flex align-items-center mb-2 mb-lg-0">
                         <a class="nav-link text-light px-3 me-2" [routerLink]="['/login']" routerLinkActive="router-link-active" *ngIf="!loggedIn()">Iniciar Sesión</a>
                         <a type="button" class="btn btn-primary me-3" [routerLink]="['/register']" routerLinkActive="router-link-active" *ngIf="!loggedIn()">Registrarse</a>
+                        <a type="button" class="btn btn-primary mx-3" *ngIf="loggedIn()" (click)="logout()">Cerrar sesión</a>
                         <a class="btn btn-dark px-3 mx-2" href="https://github.com/Gonzalo-Bruna/gestion-reclamos" role="button"><i class="fab fa-github"></i></a>
                     </div>
                 </div>

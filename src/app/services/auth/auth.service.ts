@@ -24,9 +24,12 @@ export class AuthService {
   }
 
   public loggedIn(): boolean{
-    if(this.loggedUser.getUser().username == "") console.log("no user");
     if(!localStorage.getItem('token') || this.loggedUser.getUser().username == "") return false;
     return true;
+  }
+
+  public logout(){
+    localStorage.removeItem('token');
   }
 
   public getToken(){
